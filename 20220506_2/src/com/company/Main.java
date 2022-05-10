@@ -4,9 +4,10 @@ package com.company;
         разделителя символов. В результате он должен возвращать массив подстрок. Не используйте метод String.split,
         например:
         (“Java очень проста!”, ’ ‘) -> {“ Java”,”is”, ”very”,”easy”}
-        (“Java is very easy!”, ’v‘) -> {“Ja”,“a is”, ”ery easy”}
-        (“Java is very easy!”,’!‘) -> {“ Java is very easy”}
-        (“Java is very easy!”,’:‘) -> {“ Java - это очень просто!”}
+        (“Javva is very easy!”, ’v‘) -> {“Ja”,“a is”, ”ery easy”}
+        (“Java is very easy!”,’!‘) -> {“Java is very easy”}
+        (“Java is very easy!”,’:‘) -> {"Java - это очень просто!”}
+""
  */
 
 
@@ -14,7 +15,14 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+        String str="Hel11lo Ja11v11a";
+        String[] result=split(str,'1');
+
+        for (int i = 0; i < result.length ; i++) {
+            System.out.println(result[i]);
+        }
+
+        // write your code here
         /*
         int index=6;
         array[0] =10;
@@ -37,12 +45,22 @@ public class Main {
             if(ch!=delimiter){
                 word=word+ch;
             } else {
-                temp[index]=word;
-                index++;
-                word="";
+                if(!word.isEmpty()) {
+                    temp[index] = word;
+                    index++;
+                    word = "";
+                }
             }
         }
-       return temp;
+        if(!word.isEmpty()) {
+            temp[index] = word;
+            index++;
+        }
+        String[] result = new String[index];
+        for (int i = 0; i < result.length; i++) {
+            result[i]=temp[i];
+        }
+        return result;
 
     }
 
