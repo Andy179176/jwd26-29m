@@ -5,16 +5,36 @@ public class MyDate {
     int month;
     int year;
 
-    public MyDate(int d, int m, int y ){
-        month= m;
-        day = d;
-        year=y;
+    public MyDate(int day, int month, int year ){
+        this.month= month;
+        this.day = day;
+        this.year=year;
+    }
+
+    public MyDate(int day, int month ){
+        this.month= month;
+        this.day = day;
+        this.year=2022;
+    }
+
+    public MyDate(){
+        this.month= 1;
+        this.day = 1;
+        this.year=2022;
     }
 
 
-    public void print(){
-        System.out.println(year+"-"+month+"-"+day);
+/* Создать класс автомобиль, у которого должны быть следующие поля - модель, год выпуска, цвет.
+Создать метод печати, также создать в методе main несколько обьектов класса, положить их в массив и распечатать */
 
+
+    public void print(){
+        System.out.println(year+"-"+month+"-"+this.day);
+
+    }
+
+    public void print(char delimiter){
+        System.out.println(0+delimiter);
     }
 
     public String toString(){

@@ -18,4 +18,8 @@ public class Person {
         return 2022-birthday.year;
     }
 
+    public String toString(){
+        return "Person: " + name + " age is: "+getAge() +" ("+birthday.toString()+")";
+    }
+
 }
