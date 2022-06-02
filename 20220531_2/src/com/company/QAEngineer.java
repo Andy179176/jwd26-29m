@@ -9,10 +9,11 @@ public class QAEngineer  extends Employee{
     }
 
     public String toString() {
-        return "QAEngineer: " + name + "("+salary +")";
+        return "QAEngineer: " + getName() + "("+getSalary() +")";
     }
 
+
     public void work(){
-        System.out.println( name+":I'am QAEngineer. I check the programs." );
+        System.out.println( getName()+":I'am QAEngineer. I check the programs." );
     }
 }

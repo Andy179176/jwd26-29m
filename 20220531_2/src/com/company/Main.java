@@ -10,7 +10,9 @@ public class Main {
 	 Programmer p2=new Programmer("Nick",5500.0);
      QAEngineer q1=new QAEngineer("John", 4800,false);
      QAEngineer q2=new QAEngineer("Anna", 5300.0,true);
+     //Employee employee = new Employee("emp",1000);
 
+     Programmer p3=new Programmer("Ron");
 
 
         List<Employee> list = new ArrayList<>();
@@ -24,6 +26,7 @@ public class Main {
             e.work();
             e.paySalary();
         }
+
 
 
     }

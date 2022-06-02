@@ -1,21 +1,29 @@
 package com.company;
 
-public class Employee {
-    String name;
-    double salary;
+public abstract class Employee {
+    private String name;
+    private double salary;
 
 
-    public void work(){
-        System.out.println("unknown work");
-    }
+
+    public abstract void work();
+
+
 
     public void paySalary(){
         System.out.println(name+":I got my salary " + salary +" euro");
     }
 
-    public double getSalary(){
+
+    public double getSalary()
+    {
         return  salary;
+
     }
+    public  String getName() {
+        return name;
+    }
+
 
     public Employee(String name, double salary) {
         this.name = name;
