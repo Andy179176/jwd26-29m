@@ -1,16 +1,9 @@
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 
 public class Main {
     public static void main(String[] args) {
         byte[][] data = read();
-
-        for (int i = 0; i < 30 ; i++) {
-            System.out.print(data[0][i]+ " ");
-        }
-        System.out.println();
+        writeFiles(data);
     }
 // -128 .. 127  (10110001)
 //    0 .. 255
@@ -21,6 +14,40 @@ public class Main {
 // (0 1111111)  file: 127   java: 127
 // (0 1111110)  file: 126   java: 126
 
+
+    public static void writeFiles(byte[][] data){
+        for (int i = 0; i < data.length; i++) {
+            String type = getType(data[i]);
+            String fileName="";
+            if (!type.isEmpty()){
+                fileName = type.equals("class")?"Main.class":"pic."+type;
+            } else {
+                throw new RuntimeException("Unknown data type: part "+ (i+1));
+            }
+
+            try (OutputStream fo= new FileOutputStream(fileName)){
+
+                fo.write(data[i]);
+                fo.flush();
+
+            } catch (IOException e){
+                System.err.println("Error writing "+fileName);
+            }
+
+
+        }
+    }
+
+    public static String getType(byte[] arr){
+        String res="";
+        for (FileSignature fs : FileSignature.values()){
+            if(fs.check(arr)){
+                return fs.getType();
+            }
+        }
+        return res;
+
+    }
 
 
     public static byte[][] read()  {

@@ -12,6 +12,7 @@ public enum FileSignature {
     }
 
     public boolean check(byte[] arr){
+        if (arr==null || arr.length<signatureArray.length) return false;
         for (int i = 0; i < signatureArray.length; i++) {
             if(arr[i]!=signatureArray[i]) return false;
         }
