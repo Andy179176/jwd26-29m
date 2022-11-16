@@ -8,7 +8,6 @@ public class Wait {
                    new Thread(Wait::printPong).start();
                    new Thread(Wait::printPong).start();
 
-
     }
 
     public  static void  printPing(){
@@ -25,7 +24,7 @@ public class Wait {
                 }
                 System.out.print("Ping");
                 str= "Pong";
-                lock.notify();
+                lock.notifyAll();
 
             }
        }

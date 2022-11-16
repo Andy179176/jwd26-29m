@@ -8,6 +8,13 @@ public class Main2 {
         thread2.start();
         thread1.join();
         thread2.join();
+        System.out.println("----------- end -----------------");
+
+        thread1 = new Thread(pingPong::printPing);
+        thread2 = new Thread(pingPong::printPong);
+
+        thread1.start();
+        thread2.start();
     }
 
 
